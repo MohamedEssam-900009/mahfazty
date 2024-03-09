@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/theming/fonts.dart';
 
 class TermsAndConditions extends StatelessWidget {
-  const TermsAndConditions({
-    super.key,
-  });
+  const TermsAndConditions({super.key});
 
   @override
   Widget build(BuildContext context) {
