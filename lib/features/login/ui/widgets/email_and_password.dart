@@ -45,9 +45,8 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter your email';
-              } else {
-                return null;
               }
+              return null;
             },
             controller: emailController,
             hintText: 'Enter your email',
@@ -63,12 +62,11 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter your password';
-              }else {
-                return null;
               }
+              return null;
             },
             controller: passwordController,
-            hintText: 'Enter your password',
+            isObscure: isObscure,
             suffixIcon: IconButton(
               icon: isObscure
                   ? const Icon(Icons.visibility)
@@ -79,7 +77,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                 });
               },
             ),
-            isObscure: isObscure,
+            hintText: 'Enter your Password',
           ),
         ],
       ),

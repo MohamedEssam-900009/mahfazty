@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/fonts.dart';
 
 class DontHaveAnAccount extends StatelessWidget {
-  const DontHaveAnAccount({
-    super.key,
-  });
+  const DontHaveAnAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,9 @@ class DontHaveAnAccount extends StatelessWidget {
           style: FontHelper.font13WhiteW300,
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, Routes.signup);
+          },
           child: const Text('Sign Up'),
         ),
       ],
