@@ -16,11 +16,10 @@ class DontHaveAnAccount extends StatelessWidget {
           style: FontHelper.font13WhiteW300,
         ),
         TextButton(
-          onPressed: () {
-            Navigator.pushNamed(context, Routes.signup);
-          },
-          child: const Text('Sign Up'),
-        ),
+            onPressed: () {
+              Navigator.pushNamed(context, Routes.signUp);
+            },
+            child: const Text('Sign Up'))
       ],
     );
   }

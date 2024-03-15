@@ -9,7 +9,8 @@ class MyTextFormField extends StatelessWidget {
   final bool isObscure;
   final TextEditingController controller;
   final String? Function(String?)? validator;
-   const MyTextFormField({
+  
+  const MyTextFormField({
     super.key,
     required this.hintText,
     this.suffixIcon,
@@ -23,8 +24,8 @@ class MyTextFormField extends StatelessWidget {
     return TextFormField(
       validator: validator,
       controller: controller,
-      style: FontHelper.font18GreyW300,
       obscureText: isObscure,
+      style: FontHelper.font18GreyW300,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         hintText: hintText,
