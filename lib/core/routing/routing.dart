@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mahfazty/features/home/ui/screens/home_screen.dart';
-import 'package:mahfazty/features/login/logic/cubit/login_cubit.dart';
-import 'package:mahfazty/features/sign_up/logic/cubit/sign_up_cubit.dart';
-import 'package:mahfazty/features/sign_up/ui/screens/sign_up_screen.dart';
 
+import '../../features/home/ui/screens/home_screen.dart';
+import '../../features/login/logic/cubit/login_cubit.dart';
 import '../../features/login/ui/screens/login_screen.dart';
+import '../../features/signup/logic/cubit/sign_up_cubit.dart';
+import '../../features/signup/ui/screens/sign_up_screen.dart';
 import '../networking/firebase_helper.dart';
 import 'routes.dart';
 
 class Routing {
-  Route onGenerateRoute(RouteSettings settings) {
+  Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.login:
         return MaterialPageRoute(
@@ -26,7 +26,7 @@ class Routing {
             child: const HomeScreen(),
           ),
         );
-      case Routes.signup:
+      case Routes.signUp:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => SignUpCubit(FirebaseHelper()),
@@ -46,7 +46,7 @@ class NoRouteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('No Route Found'),
+        child: Text("No Route Found"),
       ),
     );
   }

@@ -6,14 +6,16 @@ import '../../../../core/theming/fonts.dart';
 import '../../../../core/widgets/my_text_form_field.dart';
 import '../../logic/cubit/sign_up_cubit.dart';
 
-class SignUpFormField extends StatefulWidget {
-  const SignUpFormField({super.key});
+class SignUpFormFields extends StatefulWidget {
+  const SignUpFormFields({
+    super.key,
+  });
 
   @override
-  State<SignUpFormField> createState() => _SignUpFormFieldState();
+  State<SignUpFormFields> createState() => _SignUpFormFieldsState();
 }
 
-class _SignUpFormFieldState extends State<SignUpFormField> {
+class _SignUpFormFieldsState extends State<SignUpFormFields> {
   bool isObscure = true;
   late TextEditingController emailController;
   late TextEditingController passwordController;
@@ -38,7 +40,7 @@ class _SignUpFormFieldState extends State<SignUpFormField> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Welcome to Mahfazty',
+            'Welcome To Mahfazty!',
             style: FontHelper.font28SemiBoldWhite,
           ),
           verticalSpace(30),
@@ -50,13 +52,12 @@ class _SignUpFormFieldState extends State<SignUpFormField> {
           MyTextFormField(
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter your name';
-              } else {
-                return null;
+                return 'Please enter your Name';
               }
+              return null;
             },
             controller: nameController,
-            hintText: 'Enter your name',
+            hintText: 'Enter your Name',
             isObscure: false,
           ),
           verticalSpace(20),
@@ -69,12 +70,11 @@ class _SignUpFormFieldState extends State<SignUpFormField> {
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter your email';
-              } else {
-                return null;
               }
+              return null;
             },
             controller: emailController,
-            hintText: 'Enter your email',
+            hintText: 'Enter your Email',
             isObscure: false,
           ),
           verticalSpace(20),
@@ -84,27 +84,25 @@ class _SignUpFormFieldState extends State<SignUpFormField> {
           ),
           verticalSpace(10),
           MyTextFormField(
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your password';
-              } else {
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your password';
+                }
                 return null;
-              }
-            },
-            controller: passwordController,
-            hintText: 'Enter your password',
-            suffixIcon: IconButton(
-              icon: isObscure
-                  ? const Icon(Icons.visibility)
-                  : const Icon(Icons.visibility_off),
-              onPressed: () {
-                setState(() {
-                  isObscure = !isObscure;
-                });
               },
-            ),
-            isObscure: isObscure,
-          ),
+              controller: passwordController,
+              isObscure: isObscure,
+              suffixIcon: IconButton(
+                icon: isObscure
+                    ? const Icon(Icons.visibility)
+                    : const Icon(Icons.visibility_off),
+                onPressed: () {
+                  setState(() {
+                    isObscure = !isObscure;
+                  });
+                },
+              ),
+              hintText: 'Enter your Password'),
           verticalSpace(20),
           Text(
             'Password Confirmation',
@@ -114,17 +112,15 @@ class _SignUpFormFieldState extends State<SignUpFormField> {
           MyTextFormField(
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please Re-enter your password';
-              }else if (passwordConfirmationController.text.trim() != passwordController.text.trim()) {
-                return 'Passwords do not match';
-              } 
-              
-              else {
-                return null;
+                return 'Please re-enter your password';
+              } else if (passwordConfirmationController.text.trim() !=
+                  passwordController.text.trim()) {
+                return "Passwords Doesn't match";
               }
+              return null;
             },
             controller: passwordConfirmationController,
-            hintText: 'Re-enter your password',
+            isObscure: isObscure,
             suffixIcon: IconButton(
               icon: isObscure
                   ? const Icon(Icons.visibility)
@@ -135,7 +131,7 @@ class _SignUpFormFieldState extends State<SignUpFormField> {
                 });
               },
             ),
-            isObscure: isObscure,
+            hintText: 'Re-enter your Password',
           ),
         ],
       ),

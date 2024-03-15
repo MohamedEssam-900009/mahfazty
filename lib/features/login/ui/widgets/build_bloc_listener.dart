@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mahfazty/features/login/logic/cubit/login_cubit.dart';
 
 import '../../../../core/routing/routes.dart';
-import '../../logic/cubit/login_state.dart';
+import '../../logic/cubit/login_cubit.dart';
 
 class BuildBlocListener extends StatelessWidget {
   const BuildBlocListener({super.key});
@@ -18,11 +17,9 @@ class BuildBlocListener extends StatelessWidget {
       listener: (context, state) {
         if (state is LoginLoadingState) {
           showDialog(
-            context: context,
-            builder: (context) => const Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
+              context: context,
+              builder: (context) =>
+                  const Center(child: CircularProgressIndicator()));
         } else if (state is LoginErrorState) {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(

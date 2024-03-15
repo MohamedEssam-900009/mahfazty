@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/fonts.dart';
 import '../../../../core/theming/my_colors.dart';
 import '../../../../core/widgets/my_button.dart';
 import '../../logic/cubit/login_cubit.dart';
+
 import '../widgets/build_bloc_listener.dart';
 import '../widgets/dont_have_an_account.dart';
 import '../widgets/email_and_password.dart';
@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: MyColors.blackColor,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,19 +36,23 @@ class _LoginScreenState extends State<LoginScreen> {
               Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  'Forgot Password?',
+                  "Forgot Password?",
                   style: FontHelper.font18BoldWhite,
                 ),
               ),
               verticalSpace(50),
               MyButton(
                 gradient: const LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    stops: [0.0, 1.0],
-                    colors: [MyColors.orangeColor, MyColors.yellowColor]),
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  stops: [0.0, 1.0],
+                  colors: [
+                    MyColors.orangeColor,
+                    MyColors.yellowColor,
+                  ],
+                ),
                 onPressed: () {
-                  validateThenLogin();
+                  validateThenLogin(context);
                 },
                 child: Text(
                   'Login',
@@ -67,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  validateThenLogin() {
+  void validateThenLogin(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
       context.read<LoginCubit>().login();
     }

@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mahfazty/features/sign_up/logic/cubit/sign_up_state.dart';
-
 import '../../../../core/networking/firebase_helper.dart';
+
+part 'sign_up_state.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
   final FirebaseHelper firebaseHelper;
-
   SignUpCubit(this.firebaseHelper) : super(SignUpInitial());
   TextEditingController emailController = TextEditingController();
   TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
   TextEditingController passwordConfirmationController =
       TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   signUp() async {

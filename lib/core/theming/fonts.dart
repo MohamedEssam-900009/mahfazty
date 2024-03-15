@@ -7,7 +7,6 @@ class FontHelper {
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );
-
   static TextStyle font18GreyW300 = GoogleFonts.poppins(
     fontSize: 18,
     fontWeight: FontWeight.w300,
@@ -18,7 +17,7 @@ class FontHelper {
     fontWeight: FontWeight.w300,
     color: Colors.grey,
   );
-   static TextStyle font13WhiteW300 = GoogleFonts.poppins(
+  static TextStyle font13WhiteW300 = GoogleFonts.poppins(
     fontSize: 13,
     fontWeight: FontWeight.w300,
     color: Colors.white,
@@ -30,7 +29,7 @@ class FontHelper {
   );
   static TextStyle font28SemiBoldWhite = GoogleFonts.poppins(
     fontSize: 28,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
     color: Colors.white,
   );
 }
